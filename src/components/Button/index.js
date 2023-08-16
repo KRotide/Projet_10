@@ -63,7 +63,7 @@ Button.defaultProps = {
   onClick: () => null,
   type: BUTTON_TYPES.DEFAULT,
   title: "",
-  children: null
-}
+  children: null,
+};
 
 export default Button;
