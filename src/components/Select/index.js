@@ -16,9 +16,9 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue); // Ajout de newValue comme argument pour transmettre la valeur sélectionnée au composant parent
     setValue(newValue);
-    setCollapsed(newValue);
+    setCollapsed(true); // Changement de l'argument à "true" pour replier le menu déroulant après la sélection même pour "Toutes"
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">

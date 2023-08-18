@@ -13,8 +13,13 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const filteredEvents = ((!type ? data?.events : data?.events) || []).filter(
-    (event, index) => {
+  const filteredEvents = (
+    (!type
+      ? data?.events
+      : data?.events.filter((event) => event.type === type)) || []
+  ) // Ajout du filtrage par TYPE
+    .filter((_, index) => {
+      // Remplacement de l'argument "event" qui n'était pas utilisé par un underscore
       if (
         (currentPage - 1) * PER_PAGE <= index &&
         PER_PAGE * currentPage > index
@@ -22,8 +27,7 @@ const EventList = () => {
         return true;
       }
       return false;
-    }
-  );
+    });
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
@@ -40,7 +44,9 @@ const EventList = () => {
           <h3 className="SelectTitle">Catégories</h3>
           <Select
             selection={Array.from(typeList)}
-            onChange={(value) => (value ? changeType(value) : changeType(null))}
+            onChange={(value) =>
+              value !== undefined ? changeType(value) : changeType(null)
+            } // Ajout de la condition: si la valeur n'est pas indéfinie, une nouvelle valeur a été sélectionnée
           />
           <div id="events" className="ListContainer">
             {filteredEvents.map((event) => (

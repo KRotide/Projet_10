@@ -22,7 +22,7 @@ const Slider = () => {
   useEffect(() => {
     const timer = setTimeout(nextCard, 5000);
     return () => clearTimeout(timer); // Nettoyage du timer lorsque l'index change
-  }, [index]); // Lien avec les index pour que lorsque ceux-ci changent, le code de useEffect s'exécute
+  }, [nextCard]); // Lien avec la fonction nextCard pour que lorsqu'un changement est effectué, le code de useEffect s'exécute
   const handleRadioChange = (newIndex) => {
     // L'index est mis à jour lorsqu'un utilisateur clic sur un bullet point
     setIndex(newIndex);
