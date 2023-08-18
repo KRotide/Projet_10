@@ -27,7 +27,7 @@ const EventCard = ({
     </div>
   </div>
 );
-
+// Retrait de "isRequired" pour imageSrc et title + ajout de ces 2 éléments dans defaultProps pour éviter les 2 messages d'erreur de la console
 EventCard.propTypes = {
   imageSrc: PropTypes.string,
   imageAlt: PropTypes.string,
@@ -38,7 +38,9 @@ EventCard.propTypes = {
 };
 
 EventCard.defaultProps = {
+  imageSrc: "",
   imageAlt: "image",
+  title: "",
   small: false,
 };
 

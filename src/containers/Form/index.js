@@ -19,6 +19,7 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
+        onSuccess(); // Appelle de la fonction onSuccess qui provient du composant parent "Page" pour afficher le message d'envoi
       } catch (err) {
         setSending(false);
         onError(err);
