@@ -146,7 +146,7 @@ const Page = () => {
           <Logo size="large" />
           <p>
             Une agence événementielle propose des prestations de service
-            spécialisées dans la conception et l'organisation de divers
+            spécialisées dans la conception et l&apos;organisation de divers
             événements tels que des événements festifs, des manifestations
             sportives et culturelles, des événements professionnels
           </p>
